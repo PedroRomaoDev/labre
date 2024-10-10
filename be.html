@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Te adoro</title>
+
+    <style>
+        body {
+            background-color: red;
+            margin: 0; /* Remove margens padrão */
+            display: flex; /* Utiliza flexbox */
+            justify-content: center; /* Centraliza horizontalmente */
+            align-items: center; /* Centraliza verticalmente */
+            height: 100vh; /* Altura da tela */
+        }
+
+        .painel {
+            background-color: white;
+            width: 90%; /* Largura responsiva */
+            max-width: 500px; /* Largura máxima */
+            height: auto; /* Altura automática */
+            border-radius: 20px;
+            text-align: center;
+            padding: 20px; /* Padding ajustado */
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra para o painel */
+        }
+
+        #sim {
+            height: 40px;
+            width: 60px;
+            background-color: red;
+            border: 2px solid white;
+            border-radius: 10px;
+            color: white;
+            transition: transform 0.3s; /* Animação suave */
+        }
+
+        #sim:hover {
+            transform: scale(1.1); /* Aumenta o tamanho em 10% */
+        }
+
+        #nao {
+            height: 40px;
+            width: 60px;
+            background-color: red;
+            border: 2px solid white;
+            border-radius: 10px;
+            color: white;
+            margin-left: 10px;
+            transition: transform 0.3s; /* Animação suave */
+        }
+
+        @media (max-width: 600px) {
+            #nao {
+                margin-left: 0; /* Remove margem à esquerda em telas pequenas */
+                margin-top: 10px; /* Adiciona margem acima */
+            }
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="painel">
+        <h1> Maria Beatriz Labre</h1>
+
+        <img src="https://gifman.net/wp-content/uploads/2019/06/ursinho-fofo-apaixonado.gif" alt="" style="max-width: 100%; height: auto; border-radius: 10px;">
+
+        <h2>Aceita continuar namorando comigo?</h2>
+
+        <a href="https://wa.me/5561995826232">
+            <button id="sim">Sim!</button>
+        </a>
+        <button onmouseover="fuja()" id="nao">Não!</button>
+    </div>
+
+    <script>
+        function fuja() {
+            var botaoNao = document.getElementById("nao");
+
+            var larguraJanela = window.innerWidth;
+            var alturaJanela = window.innerHeight;
+
+            var maxX = larguraJanela - botaoNao.offsetWidth;
+            var maxY = alturaJanela - botaoNao.offsetHeight;
+
+            var aleatorioX = Math.floor(Math.random() * maxX);
+            var aleatorioY = Math.floor(Math.random() * maxY);
+
+            botaoNao.style.position = "absolute"; // Garante que o botão não se mova com o layout
+            botaoNao.style.left = aleatorioX + "px";
+            botaoNao.style.top = aleatorioY + "px";
+        }
+    </script>
+
+</body>
+</html>
